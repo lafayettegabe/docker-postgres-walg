@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: lafayettegabe/docker-postgres-walg
+    container_name: postgres-walg
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+      - ./data/logs:/var/log/wal-g
