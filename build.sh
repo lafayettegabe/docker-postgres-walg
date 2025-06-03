@@ -1,7 +1,7 @@
 #!/bin/bash
 
 IMAGE_NAME="lafayettegabe/docker-postgres-walg"
-VERSION="1.0.0"
+VERSION="1.0.1"
 
 echo "Building multi-architecture WAL-D image..."
 echo "Platforms: linux/amd64, linux/arm64"
