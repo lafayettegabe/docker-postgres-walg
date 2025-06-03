@@ -9,10 +9,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/lafayettegabe/docker-postgres-walg"><img src="https://img.shields.io/badge/Multi--Architecture-AMD64%20%7C%20ARM64-blue?style=flat-square" alt="Multi-Architecture"></a>
-  <a href="https://github.com/lafayettegabe/docker-postgres-walg"><img src="https://img.shields.io/badge/Automated-Backups-green?style=flat-square" alt="Automated Backups"></a>
-  <a href="https://github.com/lafayettegabe/docker-postgres-walg"><img src="https://img.shields.io/badge/S3-Compatible-orange?style=flat-square" alt="S3 Compatible"></a>
-  <a href="https://github.com/lafayettegabe/docker-postgres-walg"><img src="https://img.shields.io/badge/Email-Notifications-purple?style=flat-square" alt="Email Notifications"></a>
+  <a href="https://github.com/lafayettegabe/wald"><img src="https://img.shields.io/badge/Multi--Architecture-AMD64%20%7C%20ARM64-blue?style=flat-square" alt="Multi-Architecture"></a>
+  <a href="https://github.com/lafayettegabe/wald"><img src="https://img.shields.io/badge/Automated-Backups-green?style=flat-square" alt="Automated Backups"></a>
+  <a href="https://github.com/lafayettegabe/wald"><img src="https://img.shields.io/badge/S3-Compatible-orange?style=flat-square" alt="S3 Compatible"></a>
+  <a href="https://github.com/lafayettegabe/wald"><img src="https://img.shields.io/badge/Email-Notifications-purple?style=flat-square" alt="Email Notifications"></a>
 </p>
 
 > 🚀 **Production-ready PostgreSQL with automated WAL-G backups to S3-compatible storage**
@@ -67,7 +67,7 @@ WALG_RETENTION_DAYS=30
 ```yaml
 services:
   postgres:
-    image: lafayettegabe/docker-postgres-walg:latest
+    image: lafayettegabe/wald:latest
     container_name: postgres-walg
     restart: unless-stopped
     ports:
@@ -165,7 +165,7 @@ sudo rm -rf ./data/postgres/*
 docker run --rm \
   --env-file .env \
   -v $(pwd)/data/postgres:/var/lib/postgresql/data \
-  lafayettegabe/docker-postgres-walg:latest \
+  lafayettegabe/wald:latest \
   su - postgres -c "envdir /etc/wal-g/env /usr/local/bin/wal-g backup-fetch /var/lib/postgresql/data LATEST"
 
 # Start container
@@ -179,7 +179,7 @@ docker-compose up -d
 docker run --rm \
   --env-file .env \
   -v $(pwd)/data/postgres:/var/lib/postgresql/data \
-  lafayettegabe/docker-postgres-walg:latest \
+  lafayettegabe/wald:latest \
   su - postgres -c "envdir /etc/wal-g/env /usr/local/bin/wal-g backup-fetch /var/lib/postgresql/data LATEST"
 
 # Create recovery configuration
@@ -292,8 +292,8 @@ Example S3 bucket policy for WAL-G:
 
 ```bash
 # Clone repository
-git clone https://github.com/lafayettegabe/docker-postgres-walg.git
-cd docker-postgres-walg
+git clone https://github.com/lafayettegabe/wald.git
+cd wald
 
 # Build multi-architecture image
 chmod +x build.sh
@@ -340,7 +340,7 @@ Enable verbose logging:
 
 ```bash
 # Run with debug output
-docker run -it --env-file .env lafayettegabe/docker-postgres-walg:latest bash
+docker run -it --env-file .env lafayettegabe/wald:latest bash
 ```
 
 ## 📚 Documentation
@@ -374,7 +374,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 </p>
 
 <p align="center">
-  <a href="https://github.com/lafayettegabe/docker-postgres-walg/issues">Report Bug</a> •
-  <a href="https://github.com/lafayettegabe/docker-postgres-walg/issues">Request Feature</a> •
-  <a href="https://github.com/lafayettegabe/docker-postgres-walg">View Source</a>
+  <a href="https://github.com/lafayettegabe/wald/issues">Report Bug</a> •
+  <a href="https://github.com/lafayettegabe/wald/issues">Request Feature</a> •
+  <a href="https://github.com/lafayettegabe/wald">View Source</a>
 </p>
